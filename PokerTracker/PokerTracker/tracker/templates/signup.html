@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  
+  {% if user.is_authenticated %}
+    <h2>Poker Session Tracker</h2>
+    <p> Welcome, {{ user.username }}! Start tracking your sessions. </p>
+  {% else %}
+  <h4>Sign up</h4>
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button type="submit">Sign up</button>
+  </form>
+  {% endif %}
+{% endblock %}

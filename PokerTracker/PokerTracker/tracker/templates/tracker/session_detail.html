@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div>
+<p><strong>User:</strong> {{ session.session_user }}</a></p>
+<p><strong>Place:</strong> {{ session.place }}</p>
+<p><strong>Game Type:</strong> {{ session.game_type }}</p> 
+<p><strong>Start Time:</strong> {{ session.time_start }}</p>  
+<p><strong>End Time:</strong> {{ session.time_end }}</p>  
+<p><strong>Won/Lost:</strong> {{ session.amount }}</p>  
+<p><strong>Start Time:</strong> {{ session.time_diff }}</p>  
+<p><strong>Hourly:</strong> $ {{session.hourly |floatformat:"2"}}</p>  
+</div>
+{% endblock %}
+

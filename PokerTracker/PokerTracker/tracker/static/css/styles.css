@@ -1,0 +1,28 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+#sessions {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#sessions td, #sessions th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#sessions tr:nth-child(even){background-color: #f2f2f2;}
+
+#sessions tr:hover {background-color: #ddd;}
+
+#sessions th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}

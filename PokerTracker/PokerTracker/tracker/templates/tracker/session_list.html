@@ -1,0 +1,72 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    {% if session_list %}
+    <table id="sessions">
+    
+  	<tr >
+  		<th>Place</th>
+      <th>Game Type</th>
+    	<th>Start Time</th>
+    	<th>Start End</th>
+    	<th>Won/Lost</th>
+    	<th>Total Time</th>
+    	<th>Hourly</th>
+  	</tr>
+    
+    
+      {% for session in session_list %}
+      <a href="session/{{ session.id }}">
+      <tr>
+      <td>
+      	{{session.place}}
+      </td>
+      <td>
+        {{session.game_type}}
+      </td>
+      <td>
+        {{ session.time_start }}
+      </td>
+      <td>
+      	{{session.time_end}}
+      </td>
+       <td>
+      	$ {{session.amount}}
+      </td>
+      <td>
+      	{{session.time_diff}}
+      </td>
+      <td>
+      	$ {{session.hourly |floatformat:"2"}}
+      </td>
+      </tr>
+      </a>
+      {% endfor %}
+    </table>
+    <table id="sessions">
+
+  	<tr>
+  		<th>Total Amount</th>
+  		<th>Total Time</th>
+    	<th>Total Hourly</th>
+  	</tr>
+  		{% for session in session_list|slice:":1" %}
+      
+      <td>
+      	$ {{session.total_money}}
+      </td>
+      <td>
+      	{{session.total_time}}
+      </td>
+      <td>
+        $ {{ session.total_hourly|floatformat:"2" }}
+      </td>
+
+      {% endfor %}
+
+    </table>
+    {% else %}
+      <p>There are no sessions added.</p>
+    {% endif %}       
+{% endblock %}
+

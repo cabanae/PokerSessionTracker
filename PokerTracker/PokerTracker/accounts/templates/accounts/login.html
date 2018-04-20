@@ -1,0 +1,15 @@
+{% extends 'tracker/base_generic.html' %}
+
+{% block content %}
+<div class="login-container">
+    <h1>Welcome</h1>
+    <p>
+        You can log in here!
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit"></input>
+    </form>
+</div>
+{% endblock %}
